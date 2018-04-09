@@ -5,6 +5,10 @@ namespace HT_3
 {
     class Program
     {
+        /// <summary>
+        /// Программа теста на реакцию
+        /// </summary>
+        /// <param name="args"></param>
         static void Main(string[] args)
         {
             Console.WriteLine("\tТест на реакцию");
