@@ -11,7 +11,7 @@ namespace HT_3
         /// <param name="args"></param>
         static void Main(string[] args)
         {
-            Console.WriteLine("\tТест на реакцию");
+            Console.WriteLine("\tТест на реакцию");   // \t - табуляция для выделения заголовка
             Console.WriteLine("Введите букву, которую увидите на экране.");
             Console.WriteLine("Жми Enter, чтобы продолжить....");
             Console.ReadLine();
@@ -25,7 +25,7 @@ namespace HT_3
             while ((char)Console.ReadKey().KeyChar != alphaRandom) { }
             Console.WriteLine();
             TimeSpan timeReaction = DateTime.Now - timeStart;
-            Console.WriteLine("Время реакции "+ timeReaction.Seconds + "," + timeReaction.Milliseconds + " сек.");
+            Console.WriteLine($"Время реакции {timeReaction.TotalSeconds} сек.");
             Console.WriteLine();
         }
     }
