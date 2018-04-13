@@ -4,7 +4,15 @@ using System.Threading;
 namespace HT_3
 {
     class Program
-    {
+    {   
+        /// <summary>
+        /// Минимальное значение времени отсчета
+        /// </summary>
+        const int timeMin = 1000;  
+        /// <summary>
+        /// Максимальное значение времени отсчета
+        /// </summary>
+        const int timeMax = 3000;
         /// <summary>
         /// Программа теста на реакцию
         /// </summary>
@@ -17,12 +25,14 @@ namespace HT_3
             Console.ReadLine();
             Random randomAlpha = new Random();
             char[] alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-            Thread.Sleep(randomAlpha.Next(1000,3000));
+            Console.Write("\t");
+            Thread.Sleep(randomAlpha.Next(timeMin, timeMax));
             DateTime timeStart = DateTime.Now;
             char alphaRandom = alpha[randomAlpha.Next(0, alpha.Length)];
             Console.WriteLine(alphaRandom);
             Console.WriteLine();
-            while ((char)Console.ReadKey().KeyChar != alphaRandom) { }
+            Console.Write("\t");
+            while (Char.ToUpper((char)Console.ReadKey().KeyChar) != alphaRandom) { }
             Console.WriteLine();
             TimeSpan timeReaction = DateTime.Now - timeStart;
             Console.WriteLine($"Время реакции {timeReaction.TotalSeconds} сек.");
