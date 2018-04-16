@@ -14,12 +14,11 @@ namespace HT_3
         /// </summary>
         private const int timeMax = 3000;
 
-        private char[] alpha;
         private Random randomAlpha;
         /// <summary>
         /// Клавиши ввода
         /// </summary>
-        public char[] Alpha { get {return alpha; } set { alpha = value; } }
+        public char[] Alpha { get; set; }
         /// <summary>
         /// Время реакции
         /// </summary>
@@ -35,7 +34,7 @@ namespace HT_3
         /// <param name="alphabet">Алфавит для теста</param>
         public Reaction(string alphabet) {
             randomAlpha = new Random();
-            alpha = alphabet.ToCharArray();
+            Alpha = alphabet.ToCharArray();
         }
         /// <summary>
         /// Запускаем тест на рекцию
@@ -48,7 +47,7 @@ namespace HT_3
             Console.Write("\t");
             Thread.Sleep(randomAlpha.Next(timeMin, timeMax));
             DateTime timeStart = DateTime.Now;
-            char alphaRandom = alpha[randomAlpha.Next(0, alpha.Length)];
+            char alphaRandom = Alpha[randomAlpha.Next(0, Alpha.Length)];
             Console.WriteLine(alphaRandom);
             Console.WriteLine();
             Console.Write("\t");
