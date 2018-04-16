@@ -16,7 +16,6 @@ namespace HT_3
 
         private char[] alpha;
         private Random randomAlpha;
-        private TimeSpan timeReaction;
         /// <summary>
         /// Клавиши ввода
         /// </summary>
@@ -24,13 +23,11 @@ namespace HT_3
         /// <summary>
         /// Время реакции
         /// </summary>
-        public TimeSpan TimeReaction { get { return timeReaction; }}
+        public TimeSpan TimeReaction { get; private set; }
         /// <summary>
         /// Конструктор по-умолчанию
         /// </summary>
-        public Reaction() {
-            randomAlpha = new Random();
-            alpha = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+        public Reaction():this("ABCDEFGHIJKLMNOPQRSTUVWXYZ") {           
         }
         /// <summary>
         /// Конструктор по-умолчанию
@@ -57,8 +54,8 @@ namespace HT_3
             Console.Write("\t");
             while (Char.ToUpper(Console.ReadKey().KeyChar) != alphaRandom) { }
             Console.WriteLine(); 
-            timeReaction = DateTime.Now - timeStart;
-            Console.WriteLine($"Время реакции {timeReaction.TotalSeconds} сек.");
+            TimeReaction = DateTime.Now - timeStart;
+            Console.WriteLine($"Время реакции {TimeReaction.TotalSeconds} сек.");
             Console.WriteLine();
         }
     }
